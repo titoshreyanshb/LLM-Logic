@@ -1,0 +1,65 @@
+from pyDatalog import pyDatalog
+
+# Initialize pyDatalog
+pyDatalog.create_terms('A, B, C, D, E, child, female, male, parent, sibling, cousin')
+
+# Facts
+child('alice', 'bob')
+child('alice', 'carol')
+child('bob', 'dave')
+child('bob', 'eve')
+child('carol', 'frank')
+child('carol', 'grace')
+child('dave', 'heidi')
+child('eve', 'ivan')
+child('frank', 'judy')
+child('frank', 'ken')
+
+female('bob')
+female('dave')
+female('frank')
+female('ivan')
+female('ken')
+
+male('alice')
+male('carol')
+male('eve')
+male('grace')
+male('heidi')
+male('judy')
+
+# Rules
+parent(A, B) <= child(A, C) & child(C, B)
+sibling(A, B) <= child(C, A) & child(C, B) & (A != B)
+cousin(A, B) <= child(C, A) & child(D, B) & sibling(C, D)
+
+# Queries
+
+# Find all parents
+print('All Parents:')
+print(parent(A, B))
+
+# Check if Alice is a parent of Heidi
+print('\nIs Alice a parent of Heidi?')
+print(parent('alice', 'heidi'))
+
+# Find all siblings of Carol
+print('\nSiblings of Carol:')
+print(child('carol', A))
+
+# Find all female siblings of Carol
+print('\nFemale siblings of Carol:')
+print((child('carol', A) & female(A)))
+
+# Find all male parents of Alice
+print('\nMale parents of Alice:')
+print((parent('alice', A) & male(A)))
+
+# Find all siblings of Dave
+print('\nSiblings of Dave:')
+print(sibling('dave', A))
+
+# Find all cousins of Judy
+print('\nCousins of Judy:')
+print(cousin('judy', A))
+
