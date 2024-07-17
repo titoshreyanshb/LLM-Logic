@@ -51,9 +51,6 @@ print(child('carol', A))
 print('\nFemale siblings of Carol:')
 print((child('carol', A) & female(A)))
 
-# Find all male parents of Alice
-print('\nMale parents of Alice:')
-print((parent('alice', A) & male(A)))
 
 # Find all siblings of Dave
 print('\nSiblings of Dave:')
