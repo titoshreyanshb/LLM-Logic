@@ -40,23 +40,23 @@ print('All Parents:')
 print(parent(A, B))
 
 # Check if Alice is a parent of Heidi
-print('\nIs Alice a parent of Heidi?')
+print('Is Alice a parent of Heidi?')
 print(parent('alice', 'heidi'))
 
 # Find all siblings of Carol
-print('\nSiblings of Carol:')
+print('Siblings of Carol:')
 print(child('carol', A))
 
 # Find all female siblings of Carol
-print('\nFemale siblings of Carol:')
+print('Female siblings of Carol:')
 print((child('carol', A) & female(A)))
 
 
 # Find all siblings of Dave
-print('\nSiblings of Dave:')
+print('Siblings of Dave:')
 print(sibling('dave', A))
 
 # Find all cousins of Judy
-print('\nCousins of Judy:')
+print('Cousins of Judy:')
 print(cousin('judy', A))
 
